@@ -1,0 +1,431 @@
+/* Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Global styles */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #2e2e2e;
+    /* dark grey theme */
+    color: #ddd;
+    /* light text for readability */
+}
+
+
+/* Navbar */
+
+
+/* Navbar / Header */
+
+header {
+    background: #1f1f1f;
+    /* dark grey */
+    color: #fff;
+    padding: 2rem 3rem;
+    /* taller header */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+
+/* Brand logo text */
+
+.logo {
+    font-size: 2.2rem;
+    /* bigger font size */
+    font-weight: 800;
+    /* extra bold */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+/* Navigation links */
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffc107;
+}
+
+
+/* Hamburger menu button */
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+
+/* Mobile view */
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        /* hidden by default */
+        flex-direction: column;
+        background: #1f1f1f;
+        position: absolute;
+        top: 100%;
+        /* just below header */
+        right: 0;
+        width: 220px;
+        padding: 1rem;
+        border-radius: 0 0 8px 8px;
+    }
+    .nav-links.active {
+        display: flex;
+        /* show when toggled */
+        animation: slideDown 0.3s ease forwards;
+    }
+    .menu-toggle {
+        display: block;
+        /* show hamburger on mobile */
+    }
+}
+
+
+/* Smooth dropdown animation */
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Hero Section */
+
+.hero {
+    background: url('images/hero-bg.PNG') no-repeat center center/cover;
+    height: 80vh;
+    /* taller hero */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Overlay effect for better text contrast */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* dark overlay */
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    animation: fadeInUp 1.5s ease;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #ffc107;
+    font-weight: 500;
+}
+
+.btn {
+    background: #ffc107;
+    color: #000;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn:hover {
+    background: #e0a800;
+    transform: scale(1.05);
+}
+
+
+/* Animation for hero text */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Featured Products */
+
+.featured {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.featured h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #ffc107;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: #3a3a3a;
+    /* dark grey card */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+    color: #eee;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #ccc;
+}
+
+
+/* Footer */
+
+footer {
+    background: #1f1f1f;
+    /* dark grey footer */
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+
+/* Responsive tweaks */
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+
+/* Page Layout */
+
+.page-layout {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+
+/* Accessories Panel (Left) */
+
+
+/* Accessories Panel (Scrollable 3D) */
+
+.accessories-panel {
+    width: 220px;
+    background: #2e2e2e;
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    height: 400px;
+    /* fixed height for scroll */
+    overflow-y: auto;
+    /* vertical scroll */
+    perspective: 1000px;
+    /* enable 3D perspective */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6), 0 6px 12px rgba(0, 0, 0, 0.4);
+    /* 3D shadow effect */
+    scrollbar-width: thin;
+    /* Firefox scrollbar */
+    scrollbar-color: #ffc107 #2e2e2e;
+}
+
+
+/* Custom scrollbar for WebKit browsers */
+
+.accessories-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.accessories-panel::-webkit-scrollbar-track {
+    background: #2e2e2e;
+    border-radius: 8px;
+}
+
+.accessories-panel::-webkit-scrollbar-thumb {
+    background-color: #ffc107;
+    border-radius: 8px;
+}
+
+
+/* Title */
+
+.accessories-panel h2 {
+    color: #ffc107;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+
+/* Accessory items with 3D hover */
+
+.accessory-item {
+    margin-bottom: 1rem;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.accessory-item:hover {
+    transform: rotateY(10deg) scale(1.05);
+    /* 3D tilt + zoom */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.accessory-item img {
+    width: 90px;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.accessory-item img:hover {
+    transform: rotateX(5deg) rotateY(-5deg) scale(1.1);
+}
+
+.accessory-item p {
+    font-size: 0.9rem;
+    color: #ddd;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Repair Panel (Right) */
+
+.repair-panel {
+    width: 220px;
+    background: #2e2e2e;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.repair-panel h2 {
+    color: #ffc107;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.repair-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* stacked by default */
+    gap: 1rem;
+}
+
+.repair-item {
+    background: #3a3a3a;
+    padding: 0.8rem;
+    border-radius: 5px;
+    text-align: center;
+    color: #eee;
+    font-size: 0.95rem;
+}
+
+
+/* Responsive tweaks for panels */
+
+@media (max-width: 992px) {
+    .page-layout {
+        flex-direction: column;
+    }
+    .accessories-panel,
+    .repair-panel {
+        width: 100%;
+    }
+    .repair-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .repair-grid {
+        grid-template-columns: 1fr;
+        /* single column on small phones */
+    }
+}
